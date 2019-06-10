@@ -229,6 +229,7 @@ input.transparent-input {
 
 .message.me {
     margin-left: auto;
+    text-align: right;
 }
 
 .message > img {
@@ -245,6 +246,9 @@ input.transparent-input {
     border-radius: 8px;
     color: #5e5e5e;
     font-size: 14px;
+    white-space: pre;
+    display: inline-block;
+    text-align: left;
 }
 
 .message > .nickname {
@@ -287,13 +291,17 @@ input.transparent-input {
     display: flex;
 }
 
-.message-input > input {
+.message-input > textarea {
     color: #333333;
     flex: 1;
     font-size: 14px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    resize: none;
 }
 
-.message-input > input::placeholder {
+.message-input > textarea::placeholder {
     color: #b6b6b6;
     opacity: 1;
 }
