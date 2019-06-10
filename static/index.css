@@ -229,6 +229,7 @@ input.transparent-input {
 
 .message.me {
     margin-left: auto;
+    text-align: right;
 }
 
 .message > img {
@@ -246,6 +247,8 @@ input.transparent-input {
     color: #5e5e5e;
     font-size: 14px;
     white-space: pre;
+    display: inline-block;
+    text-align: left;
 }
 
 .message > .nickname {
