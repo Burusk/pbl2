@@ -238,7 +238,7 @@ input.transparent-input {
     bottom: 0;
 }
 
-.message > p {
+.message > .content {
     margin: 0 0 0 48px;
     background-color: white;
     padding: 12px;
@@ -247,16 +247,31 @@ input.transparent-input {
     font-size: 14px;
 }
 
+.message > .nickname {
+    position: absolute;
+    left: 48px;
+    bottom: -1.4em;
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #5e5e5e;
+}
+
 .message.me > img {
     left: initial;
     right: 0;
 }
 
-.message.me > p {
+.message.me > .content {
     margin-left: 0;
     margin-right: 48px;
     background-color: #4546a5;
     color: #d4d5fa;
+}
+
+.message.me > .nickname {
+    display: none;
 }
 
 .chat-container > .divider {
