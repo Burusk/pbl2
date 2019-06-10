@@ -102,7 +102,7 @@ class User(Resource):
 
         if keyword:
             users = execute(
-                "SELECT nickname, count(*) message_count, max(ts) last_ts FROM message WHERE nickname LIKE '%'||?||'%' GROUP BY nickname ORDER BY message_count DESC",
+                "SELECT nickname, count(*) message_count, max(ts) last_ts FROM message WHERE nickname LIKE '%'||?||'%' GROUP BY nickname ORDER BY message_count DESC, last_ts DESC",
                 parameters=(keyword,),
                 result_mapper=user_result_mapper,
             )
