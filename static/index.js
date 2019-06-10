@@ -229,14 +229,16 @@ MessageList.prototype.update = function () {
 MessageList.prototype.createItemView = function (message) {
     const container = $("<li/>").addClass("message");
     const profileImage = $("<img src='https://image.flaticon.com/icons/svg/219/219970.svg'/>");
-    const messageView = $("<p/>").text(message.message);
+    const messageView = $("<p/>").addClass("content").text(message.message);
+    const nicknameView = $("<p/>").addClass("nickname").text(message.nickname);
 
     if (message.nickname === this.nickname) {
         container.addClass("me");
     }
 
     container.append(profileImage)
-        .append(messageView);
+        .append(messageView)
+        .append(nicknameView);
 
     return container;
 };
