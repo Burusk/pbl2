@@ -2,9 +2,53 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Chat</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <title>Han-jo Chat</title>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap&subset=korean"
+          rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
 </head>
-<body>
+<body class="container">
+<nav class="left-navigation">
+    <div class="burger-icon">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </div>
+    <div id="menu" class="menu">
+        <div class="menu-item active" data-menu-name="chat"><span class="icon-bubble"></span></div>
+        <div class="menu-item" data-menu-name="settings"><span class="icon-settings"></span></div>
+    </div>
+</nav>
+<aside class="chat-info">
+    <h1 class="title">Chat</h1>
+    <div class="user-search">
+        <span class="icon-magnifier"></span>
+        <input class="transparent-input" name="user_search_keyword" placeholder="Search"/>
+    </div>
+    <div class="divider"></div>
+    <ul id="userList" class="user-list"></ul>
+</aside>
+<section class="chat-container">
+    <ul id="messageList" class="message-list"></ul>
+    <div class="divider"></div>
+    <div id="messageInput" class="message-input">
+        <input class="transparent-input" placeholder="Write your message..."/>
+        <button class="primary-button send-button" type="button"><span class="icon-paper-plane"></span></button>
+    </div>
+</section>
+<div id="inputNicknameContainer" class="modal">
+    <div class="modal-content">
+        <p>채팅에 사용할 닉네임을 입력하세요.</p>
+        <input class="transparent-input" placeholder="ex) Han-jo"/>
+        <button type="button" class="primary-button">확인</button>
+    </div>
+</div>
 
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="http://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="index.js"></script>
 </body>
 </html>

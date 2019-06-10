@@ -58,7 +58,7 @@ class ChatMessage(Resource):
             last_timestamp = 0
 
         messages = execute(
-            'SELECT * FROM message WHERE ts > ? ORDER BY ts desc',
+            'SELECT * FROM message WHERE ts > ? ORDER BY ts ASC',
             parameters=(last_timestamp,),
             result_mapper=message_result_mapper,
         )
@@ -90,6 +90,7 @@ class User(Resource):
                 messages.append({
                     'nickname': row[0],
                     'message_count': row[1],
+                    'last_timestamp': row[2]
                 })
             return messages
 
@@ -101,13 +102,13 @@ class User(Resource):
 
         if keyword:
             users = execute(
-                "SELECT nickname, count(*) message_count FROM message WHERE nickname LIKE '%'||?||'%' GROUP BY nickname",
+                "SELECT nickname, count(*) message_count, max(ts) last_ts FROM message WHERE nickname LIKE '%'||?||'%' GROUP BY nickname ORDER BY message_count DESC",
                 parameters=(keyword,),
                 result_mapper=user_result_mapper,
             )
         else:
             users = execute(
-                "SELECT nickname, count(*) message_count FROM message GROUP BY nickname",
+                "SELECT nickname, count(*) message_count, max(ts) last_ts FROM message GROUP BY nickname ORDER BY message_count DESC",
                 result_mapper=user_result_mapper,
             )
 
