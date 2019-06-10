@@ -304,12 +304,12 @@ function MessageInput(api, elem) {
     });
 
     this.submitElem.click(function () {
-      if (that.inputElem === "" && shiftDown) {
+      if (that.inputElem.val().trim() === "" || shiftDown) {
         return;
       }
-        that.sendMessage(that.inputElem.val());
+        that.sendMessage(that.inputElem.val().trim());
         that.inputElem.val("");
-    });
+      });
 }
 
 MessageInput.prototype.sendMessage = function (message) {
